@@ -4,6 +4,7 @@ import { PostCardInter } from "@/app/components/PostListViewInter";
 import { getAllPostsWithCategory } from "@/app/lib/firebase/postInter/read_server";
 import { getAllCategories } from "@/app/lib/firebase/categoryInter/read_server";
 import ListingLoading from "../../listing-loading";
+import GoToTop from "@/app/components/go-to-top";
 //import { hyphenToSpace } from "@/utils/transformName";
 
 export default async function generateStaticParams({ params }) {
@@ -44,6 +45,7 @@ export default async function generateStaticParams({ params }) {
           </div>
         })}
       </div>
+      <GoToTop></GoToTop>
     </section>
     
 }

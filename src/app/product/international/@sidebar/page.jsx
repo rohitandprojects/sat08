@@ -9,8 +9,7 @@ const fetchCountryData = async () => {
   const categories = await getAllCategories();
   return categories;
 }
-
-export default function Sidebar() {
+export default function Sidebar() {  
   const initialized = useRef(false);
   const scrolling = useRef(false);
   const iniFlag = useRef(false);
@@ -320,7 +319,7 @@ useEffect(() => {
           // console.log('iniFlag:- true true');
           return () => clearTimeout(timerFlag);
         }
-      }, 3000);
+      }, 2000);
     }
     const handleScroll = () => {
       if (
@@ -370,7 +369,7 @@ useEffect(() => {
           //console.log('iniFlag:- timer3 true');
           return () => clearTimeout(timer4);
         }
-      }, 3500);
+      }, 2500);
 
       const timer5 = setTimeout(() => {
         setActiveCategory(nextCategory);

@@ -9,7 +9,6 @@ const fetchCountryData = async () => {
   const categories = await getAllCategories();
   return categories;
 }
-
 export default function Sidebar() {
   const initialized = useRef(false);
   const scrolling = useRef(false);
@@ -326,7 +325,7 @@ const toggleSidebar = () => {
           // console.log('iniFlag:- true true');
           return () => clearTimeout(timerFlag);
         }
-      }, 3000);
+      }, 2000);
     }
     const handleScroll = () => {
       if (
@@ -376,7 +375,7 @@ const toggleSidebar = () => {
          //console.log('iniFlag:- timer3 true');
           return () => clearTimeout(timer3);
         }
-      }, 3500);
+      }, 2500);
 
       const timer = setTimeout(() => {
         setActiveCategory(nextCategory);
