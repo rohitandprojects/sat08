@@ -1,4 +1,5 @@
 "use client";
+import { useLenis } from '@studio-freight/react-lenis';
 import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,6 +17,10 @@ import ListingLoading from "../../listing-loading";
 gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedClientComponentInter = ({ post, matchCateName, getAllPost }) => {
+  const lenis = useLenis(({ scroll }) => {
+    // called every scroll
+   //console.log(scroll)
+  });
     const [b2bShow, setB2bShow] = useState(false);
     const titleMainRef = useRef(null);
     const productMainRef = useRef(null);
@@ -33,7 +38,8 @@ const AnimatedClientComponentInter = ({ post, matchCateName, getAllPost }) => {
     var nextIndex = 0;
     var nextProductName = 0;
     useEffect(() => {
-        window.scrollTo(0, 0);
+      lenis.scrollTo(0, { immediate: true });
+      //window.scrollTo(0, 0);
         //setTimeout(() => window.scrollTo(0, 0), 100);
        // console.log('detail page');
        gsap.fromTo(titleMainRef.current, 

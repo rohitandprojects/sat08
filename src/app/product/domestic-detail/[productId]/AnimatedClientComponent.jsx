@@ -1,4 +1,5 @@
 "use client";
+import { useLenis } from '@studio-freight/react-lenis';
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,6 +14,10 @@ import ListingLoading from "../../listing-loading";
 gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedClientComponent = ({ post, matchCateName, getAllPost }) => {
+  const lenis = useLenis(({ scroll }) => {
+    // called every scroll
+   //console.log(scroll)
+  });
   const titleMainRef = useRef(null);
   const productMainRef = useRef(null);
   const productImgRef = useRef(null);
@@ -31,8 +36,7 @@ const AnimatedClientComponent = ({ post, matchCateName, getAllPost }) => {
   var nextProductName = 0;
     //const containerRef = useRef(null);  
     useEffect(() => {
-        window.scrollTo(0, 0);
-        
+      lenis.scrollTo(0, { immediate: true });        
         //setTimeout(() => window.scrollTo(0, 0), 100);
        // console.log('detail page');
          // Trigger animation on component load
